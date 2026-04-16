@@ -1,27 +1,27 @@
 class Obstacle {
-  // Member Variable
-  float x, y, w, h, speed, health;
-  //PImage iTankW;
-  char idir;
+  int x, y, w, h, speed, health;
+  //PImage obst1;
 
   // Constructor
-  Obstacle(float x, float y, float w, float h, float speed, float health) {
+  Obstacle(int x, int y) {
     this.x = x;
     this.y = y;
-    this.w = w;
-    this.h = h;
-    this.speed = speed;
-    this.health = health;
-    idir = 'w';
+    w = 100;
+    h = 100;
+    speed = 2;
+    health = 75;
   }
 
   void display() {
-    fill(128);
     rectMode(CENTER);
+    fill(127);
     rect(x, y, w, h);
   }
 
   void move() {
-    x=x+speed;
+    x = x + speed;
+    if(x > width) {
+      x = 0;
+    }
   }
 }

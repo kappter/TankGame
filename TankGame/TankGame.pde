@@ -1,32 +1,38 @@
-// 1 April 2026 | TankGame by Ken Kapptie
-Tank t1;
-Obstacle o1;
+// Mr Kapptie | Apr 14 2026 | TankGame
 PImage bg;
+Tank tank1;
+ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
 
 void setup() {
   size(500, 500);
-  bg = loadImage("bg1.png");
-  t1 = new Tank();
-  o1 = new Obstacle(400,100,100,50,5,100);
+  bg = loadImage("bg2.png");
+  tank1 = new Tank();
+  obstacles.add(new Obstacle(250, 250));
+  obstacles.add(new Obstacle(25, 400));
 }
 
 void draw() {
   background(127);
   imageMode(CORNER);
-  image(bg,0,0);
-  t1.display();
-  o1.display();
-  o1.move();
+  image(bg, 0, 0);
+
+  for (int i = 0; i < obstacles.size(); i++) {
+    Obstacle obs = obstacles.get(i);
+    obs.display();
+    obs.move();
+  }
+
+  tank1.display();
 }
 
 void keyPressed() {
-  if(key == 'w'){
-    t1.move('w');
-  } else if(key == 's') {
-    t1.move('s');
-  }else if(key == 'd') {
-    t1.move('d');
-  }else if(key == 'a') {
-    t1.move('a');
+  if (key == 'w') {
+    tank1.move('w');
+  } else if (key == 's') {
+    tank1.move('s');
+  } else if (key == 'd') {
+    tank1.move('d');
+  } else if (key == 'a') {
+    tank1.move('a');
   }
 }
